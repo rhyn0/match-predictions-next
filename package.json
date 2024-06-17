@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "biome check .",
-    "lint:fix": "biome check --write --config-path=./biome.json .",
+    "lint:fix": "biome check --write .",
     "lint:types": "tsc --noEmit",
     "prepare": "husky",
     "pre-commit": "./.husky/pre-commit",
