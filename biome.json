@@ -1,0 +1,78 @@
+{
+    "$schema": "https://biomejs.dev/schemas/1.8.1/schema.json",
+    "organizeImports": {
+        "enabled": true
+    },
+    "files": {
+        "include": ["src/**/*.ts", "src/**/*.tsx", "./*.ts"],
+        "ignore": ["./.next/**/*"]
+    },
+    "linter": {
+        "enabled": true,
+        "rules": {
+            "recommended": true,
+            "complexity": {
+                "noExcessiveCognitiveComplexity": {
+                    "level": "warn",
+                    "options": {
+                        "maxAllowedComplexity": 15
+                    }
+                },
+                "noVoid": "error",
+                "useSimplifiedLogicExpression": "error"
+            },
+            "correctness": {
+                "noUndeclaredVariables": "error",
+                "noUnusedImports": "error",
+                "useHookAtTopLevel": "error"
+            },
+            "nursery": {
+                "noDuplicateElseIf": "warn",
+                "noEvolvingTypes": "warn",
+                "noUselessStringConcat": "warn",
+                "useConsistentBuiltinInstantiation": "info"
+            },
+            "style": {
+                "noNegationElse": "warn",
+                "noParameterProperties": "error",
+                "noShoutyConstants": "error",
+                "useBlockStatements": {
+                    "fix": "safe",
+                    "level": "error"
+                },
+                "useCollapsedElseIf": {
+                    "fix": "safe",
+                    "level": "error"
+                },
+                "useShorthandArrayType": "warn",
+                "useFilenamingConvention": {
+                    "level": "error",
+                    "options": {
+                        "filenameCases": ["export", "kebab-case"],
+                        "requireAscii": true
+                    }
+                },
+                "useShorthandAssign": "warn"
+            },
+            "suspicious": {
+                "useAwait": "error"
+            }
+        }
+    },
+    "formatter": {
+        "enabled": true,
+        "formatWithErrors": false,
+        "indentStyle": "space",
+        "indentWidth": 4,
+        "lineWidth": 88
+    },
+    "javascript": {
+        "formatter": {
+            "quoteStyle": "double",
+            "jsxQuoteStyle": "double",
+            "indentStyle": "space",
+            "indentWidth": 4
+        },
+        "jsxRuntime": "transparent"
+    }
+}
