@@ -3,7 +3,7 @@ import { env } from "@/env";
 import { type CookieOptions, createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
 
-export const createClient = () => {
+export function createClient(): ReturnType<typeof createServerClient> {
     const cookieStore = cookies();
 
     return createServerClient(
@@ -35,4 +35,4 @@ export const createClient = () => {
             },
         },
     );
-};
+}

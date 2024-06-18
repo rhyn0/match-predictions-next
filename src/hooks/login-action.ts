@@ -1,19 +1,10 @@
 "use server";
+
 import { createClient } from "@/lib/supabase/server";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
-export interface loginOptions {
-    successRedirect?: string;
-    failureRedirect?: string;
-}
-export async function signIn(
-    formData: FormData,
-    {
-        successRedirect = "/protected",
-        failureRedirect = "/login?message=Could not authenticate user",
-    }: loginOptions,
-) {
+export async function signIn(formData: FormData) {
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
     const supabase = createClient();
@@ -24,18 +15,12 @@ export async function signIn(
     });
 
     if (error) {
-        return redirect(failureRedirect);
+        return redirect("/login?message=Could not authenticate user");
     }
 
-    return redirect(successRedirect);
+    return redirect("/protected");
 }
-export async function signUp(
-    formData: FormData,
-    {
-        successRedirect = "/login?message=Check email to continue sign in process",
-        failureRedirect = "/login?message=Could not authenticate user",
-    }: loginOptions,
-) {
+export async function signUp(formData: FormData) {
     const origin = headers().get("origin");
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
@@ -50,10 +35,10 @@ export async function signUp(
     });
 
     if (error) {
-        return redirect(failureRedirect);
+        return redirect("/login?message=Could not authenticate user");
     }
 
-    return redirect(successRedirect);
+    return redirect("/login?message=Check email to continue sign in process");
 }
 export async function signOut() {
     const supabase = createClient();

@@ -52,14 +52,14 @@ export default function Login({
                     required
                 />
                 <SubmitButton
-                    formAction={(formData) => signIn(formData, {})}
+                    formAction={signIn}
                     className="bg-green-700 rounded-md px-4 py-2 text-foreground mb-2"
                     pendingText="Signing In..."
                 >
                     Sign In
                 </SubmitButton>
                 <SubmitButton
-                    formAction={(formData) => signUp(formData, {})}
+                    formAction={signUp}
                     className="border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2"
                     pendingText="Signing Up..."
                 >

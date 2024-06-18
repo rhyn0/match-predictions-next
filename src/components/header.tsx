@@ -1,9 +1,9 @@
-"use client";
 import Image from "next/image";
 import Link from "next/link";
 
 import { siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
+import AuthDropdown from "./auth-dropdown";
 import { Icons } from "./icons";
 import { ThemePicker } from "./theme-picker";
 import { buttonVariants } from "./ui/button";
@@ -33,6 +33,7 @@ export function Header({ className }: HeaderProps) {
                 </div>
                 <div className="flex flex-1 md:justify-end">
                     <nav className="flex items-center space-x-2">
+                        <AuthDropdown />
                         <Link href={siteConfig.github.link}>
                             <div
                                 className={cn(
