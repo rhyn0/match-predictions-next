@@ -5,7 +5,8 @@
     },
     "files": {
         "include": ["src/**/*.ts", "src/**/*.tsx", "./*.ts"],
-        "ignore": ["./.next/**/*"]
+        "ignore": ["./.next/**/*"],
+        "ignoreUnknown": false
     },
     "linter": {
         "enabled": true,
