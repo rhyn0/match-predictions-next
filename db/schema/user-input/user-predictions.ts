@@ -1,4 +1,6 @@
+import { MatchScoreZ } from "@/types";
 import { integer, pgSchema, serial, timestamp, uuid } from "drizzle-orm/pg-core";
+import { z } from "zod";
 import { authUsers } from "../auth/users";
 import { dataSchedule } from "../data/schedule";
 
@@ -21,3 +23,12 @@ export const userPredictions = userInputSchema.table("precictions", {
         .defaultNow()
         .$onUpdate(() => new Date()),
 });
+export type UserPredictionSelect = typeof userPredictions.$inferSelect;
+export type InsertUserPrediction = typeof userPredictions.$inferInsert;
+
+export const InsertUserPredictionZ = z.object({
+    owningUser: z.string().uuid(),
+    matchGuess: z.number().int(),
+    scoreA: MatchScoreZ,
+    scoreB: MatchScoreZ,
+}) satisfies z.ZodType<InsertUserPrediction>;

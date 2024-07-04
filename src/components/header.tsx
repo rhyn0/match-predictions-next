@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
 import AuthDropdown from "./auth-dropdown";
 import { Icons } from "./icons";
+import NavigationBar from "./navigation-bar";
 import { ThemePicker } from "./theme-picker";
 import { buttonVariants } from "./ui/button";
 
@@ -30,6 +31,7 @@ export function Header({ className }: HeaderProps) {
                             Prediction Groups
                         </Link>
                     </div>
+                    <NavigationBar />
                 </div>
                 <div className="flex flex-1 md:justify-end">
                     <nav className="flex items-center space-x-2">

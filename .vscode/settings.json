@@ -35,6 +35,7 @@
    },
    "workbench.editor.customLabels.enabled": true,
    "workbench.editor.customLabels.patterns": {
-      "**/src/app/**/page.tsx": "${dirname} - Page"
+      "**/src/app/**/page.tsx": "${dirname} - Page",
+      "**/src/app/**/layout.tsx": "${dirname} - Layout"
    }
 }
