@@ -7,6 +7,7 @@ import { Inter } from "next/font/google";
 import type React from "react";
 // CSS
 import "./globals.css";
+import ReactQueryProvider from "@/components/providers/react-query";
 
 const inter = Inter({ subsets: ["latin"] });
 const defaultUrl = process.env.VERCEL_URL
@@ -40,9 +41,11 @@ export default function RootLayout({
                     enableSystem
                     disableTransitionOnChange
                 >
-                    <Header className="h-12 leading-[3rem]" />
-                    {children}
-                    <TailwindIndicator />
+                    <ReactQueryProvider>
+                        <Header className="h-12 leading-[3rem]" />
+                        {children}
+                        <TailwindIndicator />
+                    </ReactQueryProvider>
                 </ThemeProvider>
             </body>
         </html>

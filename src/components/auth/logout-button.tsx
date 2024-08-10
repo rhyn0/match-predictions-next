@@ -1,6 +1,6 @@
 "use client";
+import { signOut } from "@/components/hooks/login-action";
 import { Button } from "@/components/ui/button";
-import { signOut } from "@/hooks/login-action";
 
 export default function LogoutButton() {
     return (

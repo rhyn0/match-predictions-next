@@ -1,5 +1,6 @@
 "use server";
 
+import { logger } from "@/lib/log";
 import { createClient } from "@/lib/supabase/server";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
@@ -30,11 +31,12 @@ export async function signUp(formData: FormData) {
         email,
         password,
         options: {
-            emailRedirectTo: `${origin}/auth/callback`,
+            emailRedirectTo: `${origin}/api/auth/callback`,
         },
     });
 
     if (error) {
+        logger.error("Failed to signUp user - ", error);
         return redirect("/login?message=Could not authenticate user");
     }
 

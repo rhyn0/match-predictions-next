@@ -1,3 +1,4 @@
+import { getUser } from "@/components/hooks/auth/server";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -7,7 +8,6 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { getUser } from "@/hooks/auth/server";
 import { User } from "lucide-react";
 import Link from "next/link";
 import React from "react";

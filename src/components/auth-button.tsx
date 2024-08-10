@@ -1,4 +1,4 @@
-import { signOut } from "@/hooks/login-action";
+import { signOut } from "@/components/hooks/login-action";
 import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
 import { Button } from "./ui/button";
